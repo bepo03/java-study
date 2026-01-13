@@ -1,4 +1,4 @@
-package day01;
+package day_01_12;
 
 public class Product {
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class Product {
         int totalPrice = price * quantity;
         double tax = totalPrice * TAX_RATE;
         double finalPrice = totalPrice + tax;
-        
+
         System.out.println("\n=== 결제 정보 ===");
         System.out.println("상품 금액: " + totalPrice + "원");
         System.out.println("세금 (10%): " + (int)tax + "원");

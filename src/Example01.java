@@ -1,24 +1,36 @@
 public class Example01 {
     public static void main(String[] args) {
-        byte b = 127;
-        short s = 32767;
-        int i = 2147483647;
-        long l = 9223372036854775807L;  // L 접미사 필수
-        System.out.println(b);
-        System.out.println(s);
-        System.out.println(i);
-        System.out.println(l);
+//        int x = 0;
+//        int y = 10;
+//
+//        System.out.println("x % y = " + (x % y));
+//        System.out.println("x / y = " + (x / y));
+//
+//        int num = 12345;
+//        System.out.println("1의자리: " + (num % 10));
+//        System.out.println("10의자리: " + ((num / 10) % 10));
+//        System.out.println("100의자리: " + ((num / 100) % 10));
+//        System.out.println("1000의자리: " + ((num / 1000) % 10));
+//        System.out.println("10000의자리: " + ((num / 10000) % 10));
+//
+//        String age = "20";
+//        System.out.println("Happy New year :: " + (age + 1));
+//        System.out.println(x + y + " = x + y");
+//
+//        int x1 = 0;
+//        int max = Integer.MAX_VALUE;
+//        System.out.println(max);
+//        System.out.println(max + 1);
 
-        char c = 'A';
-        char unicode = '\u0041';
-        System.out.println(c);
-        System.out.println(unicode);
+        int a = 10;
+        int b = 0;
+//        System.out.println(a / b);  // ❌ ArithmeticException: / by zero
+//        System.out.println(a % b);  // ❌ ArithmeticException: / by zero
 
-        int[] array = {1, 2, 3, 4};
-        System.out.println(array);
-
-        double fi = 3.141596579843249863;
-        int f = (int) fi;
-        System.out.printf("fi: %f\nf: %d", fi, f);
+        double x = 10.0;
+        double y = 0.0;
+        System.out.println(x / y);   // Infinity (무한대)
+        System.out.println(-x / y);  // -Infinity (음의 무한대)
+        System.out.println(0.0 / 0.0);  // NaN (Not a Number)
     }
 }

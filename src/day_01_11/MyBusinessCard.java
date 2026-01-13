@@ -1,4 +1,4 @@
-package day00;
+package day_01_11;
 
 public class MyBusinessCard {
     public static void main(String[] args) {
