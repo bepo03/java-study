@@ -1,4 +1,4 @@
-package goorm_deepdive.Java_Basic;
+package goorm_deepdive.java_basic;
 
 import java.util.Scanner;
 
