@@ -1,6 +1,5 @@
 package goorm_deepdive.java_intermediate;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -32,17 +31,15 @@ public class ExceptionHandlingPractice {
                 }
                 String[] parts = input.split(" ");
 
-                int a = Integer.parseInt(parts[0]);
+                double a = Double.parseDouble(parts[0]);
                 char operator = parts[1].charAt(0);
-                int b = Integer.parseInt(parts[2]);
+                double b = Double.parseDouble(parts[2]);
 
                 Calculator calculator = new Calculator(a, b, operator);
                 calculator.printInfo();
-            } catch (InputMismatchException e) {
-                System.out.println("숫자를 올바르게 입력해주세요.\n");
-            } catch (ArithmeticException e) {
-                System.out.println("0으로 나눌 수 없습니다.\n");
-            } catch (IllegalArgumentException e) {
+            } catch (NumberFormatException e) {
+                System.out.println("숫자를 올바르게 입력해주세요. \n");
+            } catch (ArithmeticException | IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -50,11 +47,11 @@ public class ExceptionHandlingPractice {
 }
 
 class Calculator {
-    private final int a;
-    private final int b;
+    private final double a;
+    private final double b;
     private final char operator;
 
-    public Calculator(int a, int b, char operator) {
+    public Calculator(double a, double b, char operator) {
         this.a = a;
         this.b = b;
         this.operator = operator;
@@ -62,27 +59,28 @@ class Calculator {
 
     public void printInfo() {
         switch (operator) {
-            case '+' -> System.out.printf("[더하기] %d + %d = %d\n\n", a, b, add());
-            case '-' -> System.out.printf("[빼기] %d - %d = %d\n\n", a, b, sub());
-            case '*' -> System.out.printf("[곱하기] %d * %d = %d\n\n", a, b, mul());
-            case '/' -> System.out.printf("[나누기] %d / %d = %d\n\n", a, b, div());
-            default -> throw new IllegalArgumentException("알 수 없는 연산자 입니다.\n");
+            case '+' -> System.out.printf("[더하기] %.1f + %.1f = %.1f\n\n", a, b, add());
+            case '-' -> System.out.printf("[빼기] %.1f - %.1f = %.1f\n\n", a, b, sub());
+            case '*' -> System.out.printf("[곱하기] %.1f * %.1f = %.1f\n\n", a, b, mul());
+            case '/' -> System.out.printf("[나누기] %.1f / %.1f = %.1f\n\n", a, b, div());
+            default -> throw new IllegalArgumentException("알 수 없는 연산자 입니다. \n");
         }
     }
 
-    private int add() {
+    private double add() {
         return a + b;
     }
 
-    private int sub() {
+    private double sub() {
         return a - b;
     }
 
-    private int mul() {
+    private double mul() {
         return a * b;
     }
 
-    private int div() {
+    private double div() {
+        if (b == 0) throw new ArithmeticException("0으로 나눌 수 없습니다. \n");
         return a / b;
     }
 }
